@@ -1,7 +1,9 @@
+import 'dotenv/config';
 import { ApolloServer } from 'apollo-server';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { resolvers } from './src/modules/resolvers';
+import { BooksAPI } from './src/modules/books/books.api';
 
 const typeDefs = loadSchemaSync("./**/*.graphql", {
     loaders: [new GraphQLFileLoader()],
@@ -14,6 +16,11 @@ const server = new ApolloServer({
     resolvers,
     csrfPrevention: true,
     cache: 'bounded',
+    dataSources: () => {
+        return {
+            booksAPI: new BooksAPI(),
+        };
+    },
     context: ({ req }) => {
         // Note: This example uses the `req` argument to access headers,
         // but the arguments received by `context` vary by integration.

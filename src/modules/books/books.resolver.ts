@@ -1,16 +1,7 @@
-const books = [
-    {
-      title: 'The Awakening 3',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-];
-
 export const booksResolver = {
     Query: {
-        books: () => books,
+        books: async (_: any, __: { id: string }, { dataSources } : any) => {
+            return dataSources.booksAPI.getBook(__.id);
+        },
     },
 }

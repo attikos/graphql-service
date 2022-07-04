@@ -1,5 +1,5 @@
-import { booksResolver } from './users/users.resolver';
+import { userResolver } from './users/users.resolver';
 
 export const resolvers = [
-    booksResolver,
+    userResolver,
 ];

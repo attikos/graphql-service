@@ -1,13 +1,13 @@
-import { RESTDataSource } from 'apollo-datasource-rest';
+import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 
-const users = [
-    {
-        name: 'Kate Chopin',
-    },
-    {
-        name: 'Paul Auster',
-    },
-];
+// const users = [
+//     {
+//         name: 'Kate Chopin',
+//     },
+//     {
+//         name: 'Paul Auster',
+//     },
+// ];
 
 export class UsersAPI extends RESTDataSource {
     constructor() {
@@ -17,19 +17,19 @@ export class UsersAPI extends RESTDataSource {
         this.baseURL = process.env.USERS_URL;
     }
 
-    async getUsers(id: string) {
-        // Send a GET request to the specified endpoint
-        console.log(id)
-        return new Promise(resolve => setTimeout(() => resolve(users), 1000))
-        // return this.get(`books/${encodeURIComponent(id)}`);
+    willSendRequest(request: RequestOptions) {
+        request.headers.set('Authorization', this.context.token);
     }
 
-//   async getMostViewedBooks(limit = 10) {
-//     const data = await this.get('books', {
-//       // Query parameters
-//       per_page: limit,
-//       order_by: 'most_viewed',
-//     });
-//     return data.results;
-//   }
+    async verify() {
+        return await this.post('verify');
+    }
+
+    async login(userData: any) {
+        return await this.post('login', userData);
+    }
+
+    async register(userData: any) {
+        return await this.post('register', userData);
+    }
 }

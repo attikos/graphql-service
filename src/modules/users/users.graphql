@@ -1,7 +1,30 @@
 type User {
-  name: String
+    firstName: String
+    lastName: String
+    password: String
+    email: String!
+    _id: String
 }
 
 type Query {
-  users: [User]
+    verify: User
+}
+
+type JWT {
+    jwt: String
+}
+
+type Mutation {
+    register(
+        firstName: String
+        lastName: String
+        password: String!
+        email: String!
+        favouriteArtistIds: [String]
+    ) : User
+
+    login(
+        password: String!
+        email: String!
+    ) : JWT
 }

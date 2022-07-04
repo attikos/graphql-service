@@ -3,6 +3,10 @@ export const userResolver = {
         verify: async (_: any, __: any, { dataSources } : any) => {
             return await dataSources.usersAPI.verify();
         },
+
+        getBuyId: async (_: any, { id }: any, { dataSources }: any) => {
+            return await dataSources.usersAPI.getBuyId(id);
+        },
     },
 
     Mutation: {

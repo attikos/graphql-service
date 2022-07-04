@@ -1,14 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 
-// const users = [
-//     {
-//         name: 'Kate Chopin',
-//     },
-//     {
-//         name: 'Paul Auster',
-//     },
-// ];
-
 export class UsersAPI extends RESTDataSource {
     constructor() {
         // Always call super()
@@ -31,5 +22,9 @@ export class UsersAPI extends RESTDataSource {
 
     async register(userData: any) {
         return await this.post('register', userData);
+    }
+
+    async getBuyId(id: string) {
+        return await this.get(id);
     }
 }

@@ -1,11 +1,11 @@
-import GraphQLUpload from 'graphql-upload';
+// import GraphQLUpload from 'graphql-upload';
 
 export const albumResolver = {
     // FileUpload: GraphQLUpload,
 
     Query: {
-        albums: (_: any, __: any, { dataSources } : any) => {
-            return dataSources.AlbumAPI.getAll();
+        albums: (_: any, args: any, { dataSources } : any) => {
+            return dataSources.AlbumAPI.getAll(args);
         },
 
         album: (_: any, { id }: any, { dataSources }: any) => {
@@ -31,7 +31,7 @@ export const albumResolver = {
         },
 
         deleteAlbum: (root: any, args: any, context: any) => {
-            return context.dataSources.AlbumAPI.deleteAlbum(args);
+            return context.dataSources.AlbumAPI.deleteEntity(args);
         },
     },
 }

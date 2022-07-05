@@ -1,11 +1,10 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { Pagination } from 'src/types';
 
 export class AlbumAPI extends RESTDataSource {
     constructor() {
         super();
 
-        this.baseURL = 'http://localhost:3005/v1/albums';
+        this.baseURL = 'http://localhost:3002/v1/artists';
     }
 
     willSendRequest(request: RequestOptions) {
@@ -24,7 +23,7 @@ export class AlbumAPI extends RESTDataSource {
         return this.delete(id);
     }
 
-    getAll(pagination: Pagination) {
+    getAll(pagination: any) {
         return this.get('', pagination);
     }
 

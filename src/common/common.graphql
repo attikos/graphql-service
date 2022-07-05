@@ -1,0 +1,10 @@
+type DeleteEntity {
+    acknowledged: Boolean
+    deletedCount: Int
+}
+
+input PaginationInput {
+    limit: Int
+    offset: Int
+    filter: String
+}

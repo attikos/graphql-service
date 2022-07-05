@@ -4,6 +4,7 @@ import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { resolvers } from './src/modules/resolvers';
 import { UsersAPI } from './src/modules/users/users.api';
+import { AlbumsAPI } from './src/modules/albums/albums.api';
 
 const typeDefs = loadSchemaSync("./**/*.graphql", {
     loaders: [new GraphQLFileLoader()],
@@ -17,6 +18,7 @@ const server = new ApolloServer({
     dataSources: () => {
         return {
             usersAPI: new UsersAPI(),
+            albumsAPI: new AlbumsAPI(),
         };
     },
     context: ({ req }) => {

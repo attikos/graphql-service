@@ -1,17 +1,25 @@
 type User {
-    _id: String
+    _id: ID!
     firstName: String
     lastName: String
     email: String!
     password: String
 }
 
-type userVerify {
-    _id: String
+type UserVerify {
+    _id: ID!
     firstName: String
     lastName: String
     email: String
     iat: String
+}
+
+input UserInputCreate {
+    password: String!
+    email: String!
+    firstName: String
+    lastName: String
+    favouriteArtistIds: [String]
 }
 
 type JWT {
@@ -19,19 +27,13 @@ type JWT {
 }
 
 type Query {
-    verify: userVerify
+    verify: UserVerify
 
-    getBuyId(id: String): User
+    user(id: ID!): User
 }
 
 type Mutation {
-    register(
-        firstName: String
-        lastName: String
-        password: String!
-        email: String!
-        favouriteArtistIds: [String]
-    ) : User
+    register(args: UserInputCreate) : User
 
     login(
         password: String!

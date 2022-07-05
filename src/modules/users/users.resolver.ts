@@ -4,7 +4,7 @@ export const userResolver = {
             return await dataSources.usersAPI.verify();
         },
 
-        getBuyId: async (_: any, { id }: any, { dataSources }: any) => {
+        user: async (_: any, { id }: any, { dataSources }: any) => {
             return await dataSources.usersAPI.getBuyId(id);
         },
     },

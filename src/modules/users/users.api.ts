@@ -15,15 +15,15 @@ export class UsersAPI extends RESTDataSource {
         return await this.post('verify');
     }
 
-    async login(userData: any) {
-        return await this.post('login', userData);
+    async login(args: any) {
+        return await this.post('login', args);
     }
 
-    async register(userData: any) {
-        return await this.post('register', userData);
+    async register(args: any) {
+        return await this.post('register', args);
     }
 
-    async getBuyId(id: string) {
+    async user(id: string) {
         return await this.get(id);
     }
 }

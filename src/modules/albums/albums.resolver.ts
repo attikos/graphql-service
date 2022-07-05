@@ -1,4 +1,8 @@
+import GraphQLUpload from 'graphql-upload';
+
 export const albumResolver = {
+    // FileUpload: GraphQLUpload,
+
     Query: {
         albums: (_: any, __: any, { dataSources } : any) => {
             return dataSources.AlbumsAPI.getAll();

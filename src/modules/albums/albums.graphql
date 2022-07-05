@@ -40,10 +40,14 @@ type Query {
     album(id: ID!): Album
 }
 
-type Mutation {
+scalar FileUpload
+
+extend type Mutation {
     createAlbum(args: AlbumInputCreate) : Album
 
     updateAlbum(id: ID, args: AlbumInput) : Album
 
     deleteAlbum(id: ID) : AlbumDelete
+
+    # uploadAlbumImage(id: ID, image: FileUpload!) : Album
 }

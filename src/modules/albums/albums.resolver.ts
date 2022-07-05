@@ -1,16 +1,16 @@
 export const albumResolver = {
     Query: {
-        getAll: async (_: any, __: any, { dataSources } : any) => {
-            return await dataSources.AlbumsAPI.getAll();
+        albums: (_: any, __: any, { dataSources } : any) => {
+            return dataSources.AlbumsAPI.getAll();
         },
 
-        // getBuyId: async (_: any, { id }: any, { dataSources }: any) => {
-        //     return await dataSources.AlbumsAPI.getBuyId(id);
-        // },
+        album: (_: any, { id }: any, { dataSources }: any) => {
+            return dataSources.AlbumsAPI.getBuyId(id);
+        },
     },
 
     Mutation: {
-        create: (root: any, args: any, context: any) => {
+        createAlbum: (root: any, args: any, context: any) => {
             const {
                 name,
                 released,
@@ -22,7 +22,7 @@ export const albumResolver = {
             });
         },
 
-        update: (root: any, args: any, context: any) => {
+        updateAlbum: (root: any, args: any, context: any) => {
             return context.dataSources.AlbumsAPI.update(args);
         },
 

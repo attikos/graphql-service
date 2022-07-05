@@ -35,22 +35,15 @@ type AlbumDelete {
 }
 
 type Query {
-    getAll: [Album]
+    albums: [Album]
 
-    getBuyId(id: String!): Album
+    album(id: ID!): Album
 }
 
 type Mutation {
-    create(
-        args: AlbumInputCreate
-    ) : Album
+    createAlbum(args: AlbumInputCreate) : Album
 
-    update(
-        id: ID
-        args: AlbumInput
-    ) : Album
+    updateAlbum(id: ID, args: AlbumInput) : Album
 
-    deleteAlbum(
-        id: ID
-    ) : AlbumDelete
+    deleteAlbum(id: ID) : AlbumDelete
 }

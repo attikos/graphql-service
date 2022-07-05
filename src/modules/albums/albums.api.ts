@@ -27,7 +27,7 @@ export class AlbumsAPI extends RESTDataSource {
         return this.get('');
     }
 
-    // getBuyId(id: string) {
-    //     return this.get(id);
-    // }
+    getBuyId(id: string) {
+        return this.get(id);
+    }
 }

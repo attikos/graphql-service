@@ -5,11 +5,11 @@ export const albumResolver = {
 
     Query: {
         albums: (_: any, __: any, { dataSources } : any) => {
-            return dataSources.AlbumsAPI.getAll();
+            return dataSources.AlbumAPI.getAll();
         },
 
         album: (_: any, { id }: any, { dataSources }: any) => {
-            return dataSources.AlbumsAPI.getBuyId(id);
+            return dataSources.AlbumAPI.getBuyId(id);
         },
     },
 
@@ -20,18 +20,18 @@ export const albumResolver = {
                 released,
             } = args;
 
-            return context.dataSources.AlbumsAPI.create({
+            return context.dataSources.AlbumAPI.create({
                 name,
                 released,
             });
         },
 
         updateAlbum: (root: any, args: any, context: any) => {
-            return context.dataSources.AlbumsAPI.update(args);
+            return context.dataSources.AlbumAPI.update(args);
         },
 
         deleteAlbum: (root: any, args: any, context: any) => {
-            return context.dataSources.AlbumsAPI.deleteAlbum(args);
+            return context.dataSources.AlbumAPI.deleteAlbum(args);
         },
     },
 }

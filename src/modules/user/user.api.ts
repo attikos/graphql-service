@@ -1,6 +1,6 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 
-export class UsersAPI extends RESTDataSource {
+export class UserAPI extends RESTDataSource {
     constructor() {
         super();
 

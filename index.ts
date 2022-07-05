@@ -3,8 +3,8 @@ import { ApolloServer } from 'apollo-server';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { resolvers } from './src/modules/resolvers';
-import { UsersAPI } from './src/modules/users/users.api';
-import { AlbumsAPI } from './src/modules/albums/albums.api';
+import { UserAPI } from './src/modules/user/user.api';
+import { AlbumAPI } from './src/modules/album/album.api';
 
 const typeDefs = loadSchemaSync("./**/*.graphql", {
     loaders: [new GraphQLFileLoader()],
@@ -17,8 +17,8 @@ const server = new ApolloServer({
     cache: 'bounded',
     dataSources: () => {
         return {
-            usersAPI: new UsersAPI(),
-            albumsAPI: new AlbumsAPI(),
+            userAPI: new UserAPI(),
+            albumAPI: new AlbumAPI(),
         };
     },
     context: ({ req }) => {

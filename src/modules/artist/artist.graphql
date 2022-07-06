@@ -6,15 +6,8 @@ type Artist {
     birthDate: String
     birthPlace: String
     country: String!
-    bands: [ID]
+    bands: [Band]
     instruments: [String]
-}
-
-type ArtistsPagination {
-    offset: Int
-    limit: Int
-    total: Int
-    items: [Artist!]
 }
 
 input ArtistInputCreate {
@@ -43,7 +36,7 @@ type ArtistPagination {
   offset: Int
   limit: Int
   total: Int
-  items: [Artist!]
+  items: [Artist]
 }
 
 type Query {
@@ -55,7 +48,7 @@ type Query {
 type Mutation {
     createArtist(args: ArtistInputCreate) : Artist
 
-    updateArtist(id: ID, args: ArtistInputUpdate) : Artist
+    updateArtist(id: ID!, args: ArtistInputUpdate) : Artist
 
-    deleteArtist(id: ID) : DeleteEntity
+    deleteArtist(id: ID!) : DeleteEntity
 }

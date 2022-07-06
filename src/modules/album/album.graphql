@@ -3,12 +3,9 @@ type Album {
     name: String
     released: Int
     artists: [Artist]
-    # bands: [Band]
-    # tracks: [Track]
-    # genres: [Genre]
-    bands: [String]
-    tracks: [String]
-    genres: [String]
+    bands: [Band]
+    tracks: [Track]
+    genres: [Genre]
     image: String
 }
 
@@ -36,7 +33,7 @@ type AlbumPagination {
   offset: Int
   limit: Int
   total: Int
-  items: [Album!]
+  items: [Album]
 }
 
 type Query {
@@ -50,9 +47,9 @@ type Query {
 extend type Mutation {
     createAlbum(args: AlbumInputCreate) : Album
 
-    updateAlbum(id: ID, args: AlbumInputUpdate) : Album
+    updateAlbum(id: ID!, args: AlbumInputUpdate) : Album
 
-    deleteAlbum(id: ID) : DeleteEntity
+    deleteAlbum(id: ID!) : DeleteEntity
 
     # uploadAlbumImage(id: ID, image: FileUpload!) : Album
 }

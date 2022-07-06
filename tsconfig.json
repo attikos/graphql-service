@@ -20,12 +20,17 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false,
         "moduleResolution": "node",
-        "baseUrl": "./",
+        "baseUrl": ".",
         "types": ["node"],
         "rootDirs": [
             "."
         ],
+        "paths": {
+          "*": ["*", "src/*"]
+        },
         "outDir": "./dist"
     },
     "include": [

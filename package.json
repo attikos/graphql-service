@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -p tsconfig.json",
     "start:dev": "nodemon index.ts",
+    "start:debug": "TS_NODE_DEBUG=true ts-node index.ts",
     "start:prod": "npm run compile && node dist/index.js"
   },
   "repository": {

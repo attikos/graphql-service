@@ -19,7 +19,7 @@ export const userResolver = {
                 favouriteArtistIds,
             } = args;
 
-            return await context.dataSources.usersAPI.register({
+            await context.dataSources.usersAPI.register({
                 firstName,
                 lastName,
                 password,

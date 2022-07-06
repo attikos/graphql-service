@@ -19,7 +19,7 @@ input UserInputCreate {
     email: String!
     firstName: String
     lastName: String
-    favouriteArtistIds: [String]
+    favouriteArtistIds: [ID]
 }
 
 type JWT {

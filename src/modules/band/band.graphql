@@ -1,0 +1,62 @@
+type Band {
+    id: ID!
+    name: String!
+    origin: String
+    members: [Member]
+    website: String
+    genres: [Genre]
+}
+
+type Member {
+    artist: ID!
+    instrument: String
+    years: [String]
+}
+
+input MemberInput {
+    artist: ID!
+    instrument: String
+    years: [String]
+}
+
+input BandInputCreate {
+    name: String
+    origin: String
+    members: [MemberInput]
+    website: String
+    genres: [ID]
+}
+
+input BandInputUpdate {
+    name: String!
+    origin: String
+    members: [MemberInput]
+    website: String
+    genres: [ID]
+}
+
+type BandDelete {
+    acknowledged: Boolean
+    deletedCount: Int
+}
+
+type BandPagination {
+  offset: Int
+  limit: Int
+  total: Int
+  items: [Band]
+}
+
+type Query {
+    bands(arg: PaginationInput): BandPagination
+
+    band(id: ID!): Band
+}
+
+type Mutation {
+    createBand(args: BandInputCreate) : Band
+
+    updateBand(id: ID!, args: BandInputUpdate) : Band
+
+    deleteBand(id: ID!) : DeleteEntity
+}

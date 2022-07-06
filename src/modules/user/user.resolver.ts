@@ -1,31 +1,35 @@
 export const userResolver = {
     Query: {
         verify: async (_: any, __: any, { dataSources } : any) => {
-            return await dataSources.usersAPI.verify();
+            return await dataSources.userAPI.verify();
         },
 
         user: async (_: any, { id }: any, { dataSources }: any) => {
-            return await dataSources.usersAPI.getBuyId(id);
+            return await dataSources.userAPI.getBuyId(id);
         },
     },
 
     Mutation: {
-        register: async (root: any, args: any, context: any) => {
+        register: async (root: any, {input}: any, context: any) => {
             const {
                 firstName,
                 lastName,
                 password,
                 email,
                 favouriteArtistIds,
-            } = args;
+            } = input;
 
-            await context.dataSources.usersAPI.register({
+            const res = await context.dataSources.userAPI.register({
                 firstName,
                 lastName,
                 password,
                 email,
                 favouriteArtistIds,
             });
+
+            console.log('res', res);
+
+            return res;
         },
 
         login: async (root: any, args: any, context: any) => {
@@ -34,7 +38,7 @@ export const userResolver = {
                 password,
             } = args;
 
-            return await context.dataSources.usersAPI.login({
+            return await context.dataSources.userAPI.login({
                 email,
                 password,
             });

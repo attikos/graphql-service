@@ -13,21 +13,21 @@ export class UserAPI extends RESTDataSource {
     }
 
     @normalizeId
-    async verify() {
-        return await this.post('verify');
+    verify() {
+        return this.post('verify');
     }
 
-    async login(args: any) {
-        return await this.post('login', args);
-    }
-
-    @normalizeId
-    async register(args: any) {
-        return await this.post('register', args);
+    login(args: any) {
+        return this.post('login', args);
     }
 
     @normalizeId
-    async user(id: string) {
-        return await this.get(id);
+    register(args: any) {
+        return this.post('register', args);
+    }
+
+    @normalizeId
+    user(id: string) {
+        return this.get(id);
     }
 }

@@ -5,26 +5,19 @@ type Genre {
     country: String
     year: Int
 }
-input MemberInput {
-    artist: ID!
-    instrument: String
-    years: [String]
-}
 
 input GenreInputCreate {
     name: String
-    origin: String
-    members: [MemberInput]
-    website: String
-    genres: [ID]
+    description: String
+    country: String
+    year: Int
 }
 
 input GenreInputUpdate {
     name: String!
-    origin: String
-    members: [MemberInput]
-    website: String
-    genres: [ID]
+    description: String
+    country: String
+    year: Int
 }
 
 type GenreDelete {

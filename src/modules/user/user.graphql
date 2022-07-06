@@ -33,7 +33,7 @@ type Query {
 }
 
 type Mutation {
-    register(args: UserInputCreate) : User
+    register(input: UserInputCreate) : User
 
     login(
         password: String!

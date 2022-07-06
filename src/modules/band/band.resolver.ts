@@ -9,6 +9,10 @@ export const bandResolver = {
         },
     },
 
+    // Band: {
+
+    // },
+
     Mutation: {
         createBand: (root: any, args: any, context: any) => {
             const {

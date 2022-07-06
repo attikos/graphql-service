@@ -33,10 +33,10 @@ type ArtistDelete {
 }
 
 type ArtistPagination {
-  offset: Int
-  limit: Int
-  total: Int
-  items: [Artist]
+    offset: Int
+    limit: Int
+    total: Int
+    items: [Artist]
 }
 
 type Query {

@@ -5,7 +5,7 @@ export class BandAPI extends RESTDataSource {
     constructor() {
         super();
 
-        this.baseURL = 'http://localhost:3002/v1/bands';
+        this.baseURL = 'http://localhost:3003/v1/bands';
     }
 
     willSendRequest(request: RequestOptions) {

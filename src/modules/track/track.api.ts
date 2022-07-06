@@ -5,7 +5,7 @@ export class TrackAPI extends RESTDataSource {
     constructor() {
         super();
 
-        this.baseURL = 'http://localhost:3002/v1/tracks';
+        this.baseURL = 'http://localhost:3006/v1/tracks';
     }
 
     willSendRequest(request: RequestOptions) {
@@ -13,8 +13,10 @@ export class TrackAPI extends RESTDataSource {
     }
 
     @normalizeId
-    create(args: any) {
-        return this.post('', args);
+    async create(args: any) {
+        const res = await this.post('', args);
+
+        return res;
     }
 
     @normalizeId

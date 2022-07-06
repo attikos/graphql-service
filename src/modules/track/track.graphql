@@ -1,7 +1,6 @@
 type Track {
     id: ID!
     title: String!
-    albums: [Album]
     bands: [Band]
     duration: Int
     released: Int
@@ -39,15 +38,15 @@ type TrackPagination {
 }
 
 type Query {
-    tracks(arg: PaginationInput): TrackPagination
+    tracks(input: PaginationInput): TrackPagination
 
     track(id: ID!): Track
 }
 
 type Mutation {
-    createTrack(args: TrackInputCreate) : Track
+    createTrack(input: TrackInputCreate) : Track
 
-    updateTrack(id: ID!, args: TrackInputUpdate) : Track
+    updateTrack(id: ID!, input: TrackInputUpdate) : Track
 
     deleteTrack(id: ID!) : DeleteEntity
 }

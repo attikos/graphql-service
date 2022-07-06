@@ -1,33 +1,25 @@
 export const trackResolver = {
     Query: {
-        tracks: (_: any, args: any, { dataSources } : any) => {
-            return dataSources.TrackAPI.getAll(args);
+        tracks: (_: any, { input }: any, { dataSources } : any) => {
+            return dataSources.trackAPI.getAll(input);
         },
 
         track: (_: any, { id }: any, { dataSources }: any) => {
-            return dataSources.TrackAPI.getBuyId(id);
+            return dataSources.trackAPI.getBuyId(id);
         },
     },
 
     Mutation: {
-        createTrack: (root: any, args: any, context: any) => {
-            const {
-                name,
-                released,
-            } = args;
-
-            return context.dataSources.TrackAPI.create({
-                name,
-                released,
-            });
+        createTrack: (root: any, { input }: any, context: any) => {
+            return context.dataSources.trackAPI.create(input);
         },
 
         updateTrack: (root: any, args: any, context: any) => {
-            return context.dataSources.TrackAPI.update(args);
+            return context.dataSources.trackAPI.update(args);
         },
 
         deleteTrack: (root: any, args: any, context: any) => {
-            return context.dataSources.TrackAPI.deleteEntity(args);
+            return context.dataSources.trackAPI.deleteEntity(args);
         },
     },
 }

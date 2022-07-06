@@ -5,7 +5,7 @@ export class GenreAPI extends RESTDataSource {
     constructor() {
         super();
 
-        this.baseURL = 'http://localhost:3002/v1/genres';
+        this.baseURL = 'http://localhost:3001/v1/genres';
     }
 
     willSendRequest(request: RequestOptions) {

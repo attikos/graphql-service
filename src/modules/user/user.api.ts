@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { normalizeId } from '../../common/helpers';
+import { normalizeItemsId } from '../../common/helpers';
 
 export class UserAPI extends RESTDataSource {
     constructor() {
@@ -12,7 +12,7 @@ export class UserAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    @normalizeId
+    @normalizeItemsId
     verify() {
         return this.post('verify');
     }
@@ -21,12 +21,12 @@ export class UserAPI extends RESTDataSource {
         return this.post('login', args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     register(args: any) {
         return this.post('register', args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getById(id: string) {
         return this.get(id);
     }

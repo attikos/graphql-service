@@ -13,7 +13,12 @@ type Artist {
 input ArtistInputCreate {
     firstName: String!
     secondName: String!
+    middleName: String
     country: String!
+    birthDate: String
+    birthPlace: String
+    bandsIds: [ID]
+    instruments: [String]
 }
 
 input ArtistInputUpdate {
@@ -23,7 +28,7 @@ input ArtistInputUpdate {
     birthDate: String
     birthPlace: String
     country: String
-    bands: [ID]
+    bandsIds: [ID]
     instruments: [String]
 }
 

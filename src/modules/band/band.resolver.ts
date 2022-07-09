@@ -10,17 +10,19 @@ export const bandResolver = {
     },
 
     Band: {
-        id(parent: any) {
+        id(parent: { id : string }) {
+            console.log('Band id parent', parent);
+
             return parent.id;
         },
 
         genres(parent: any, args: any, { dataSources } : any) {
             const genres = async () => {
-                const genresData = parent.genresIds.map((id: string) =>
+                const getCollection = parent.genresIds.map((id: string) =>
                     dataSources.genreAPI.getById(id)
                 );
 
-                return await Promise.all(genresData);
+                return await Promise.all(getCollection);
             };
 
             return genres();

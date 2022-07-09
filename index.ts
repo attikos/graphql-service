@@ -24,7 +24,7 @@ const server = new ApolloServer({
         return {
             userAPI: new UserAPI(),
             albumAPI: new AlbumAPI(),
-            atristAPI: new ArtistAPI(),
+            artistAPI: new ArtistAPI(),
             trackAPI: new TrackAPI(),
             bandAPI: new BandAPI(),
             genreAPI: new GenreAPI(),

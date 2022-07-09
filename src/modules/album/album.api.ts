@@ -1,6 +1,6 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 import { Pagination } from 'src/types';
-import { normalizeId } from '../../common/helpers';
+import { normalizeItemsId } from '../../common/helpers';
 
 export class AlbumAPI extends RESTDataSource {
     constructor() {
@@ -13,22 +13,22 @@ export class AlbumAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    @normalizeId
+    @normalizeItemsId
     create(args: any) {
         return this.post('', args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     update({ id, args }: any) {
         return this.put(id, args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     deleteEntity({ id }: any) {
         return this.delete(id);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getAll(pagination: Pagination) {
         return this.get('', pagination);
     }

@@ -9,6 +9,24 @@ export const artistResolver = {
         },
     },
 
+    Artist: {
+        id(parent: { id : string }) {
+            return parent.id;
+        },
+
+        bands(parent: { bandsIds : Array<string> }, args: any, { dataSources }: any) {
+            const getCollection = () => {
+                const data = parent.bandsIds.map((id: string) =>
+                    dataSources.bandAPI.getById(id)
+                );
+
+                return Promise.all(data);
+            };
+
+            return getCollection();
+        },
+    },
+
     Mutation: {
         createArtist: (root: any, args: any, context: any) => {
             const {

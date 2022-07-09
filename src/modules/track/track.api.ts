@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { normalizeId } from '../../common/helpers';
+import { normalizeItemsId } from '../../common/helpers';
 
 export class TrackAPI extends RESTDataSource {
     constructor() {
@@ -12,29 +12,29 @@ export class TrackAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    @normalizeId
+    @normalizeItemsId
     async create(args: any) {
         const res = await this.post('', args);
 
         return res;
     }
 
-    @normalizeId
+    @normalizeItemsId
     update({ id, args }: any) {
         return this.put(id, args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     deleteEntity({ id }: any) {
         return this.delete(id);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getAll(pagination: any) {
         return this.get('', pagination);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getById(id: string) {
         return this.get(id);
     }

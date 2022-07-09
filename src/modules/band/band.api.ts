@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { normalizeId } from '../../common/helpers';
+import { normalizeItemsId } from '../../common/helpers';
 
 export class BandAPI extends RESTDataSource {
     constructor() {
@@ -12,27 +12,27 @@ export class BandAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    @normalizeId
+    @normalizeItemsId
     create(args: any) {
         return this.post('', args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     update({ id, args }: any) {
         return this.put(id, args);
     }
 
-    @normalizeId
+    @normalizeItemsId
     deleteEntity({ id }: any) {
         return this.delete(id);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getAll(pagination: any) {
         return this.get('', pagination);
     }
 
-    @normalizeId
+    @normalizeItemsId
     getById(id: string) {
         return this.get(id);
     }

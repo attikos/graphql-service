@@ -27,7 +27,7 @@ export class UserAPI extends RESTDataSource {
     }
 
     @normalizeId
-    getBuyId(id: string) {
+    getById(id: string) {
         return this.get(id);
     }
 }

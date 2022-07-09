@@ -1,11 +1,11 @@
 export const genreResolver = {
     Query: {
         genres: (_: any, args: any, { dataSources } : any) => {
-            return dataSources.GenreAPI.getAll(args);
+            return dataSources.genreAPI.getAll(args);
         },
 
         genre: (_: any, { id }: any, { dataSources }: any) => {
-            return dataSources.GenreAPI.getBuyId(id);
+            return dataSources.genreAPI.getById(id);
         },
     },
 
@@ -16,18 +16,18 @@ export const genreResolver = {
                 released,
             } = args;
 
-            return context.dataSources.GenreAPI.create({
+            return context.dataSources.genreAPI.create({
                 name,
                 released,
             });
         },
 
         updateGenre: (root: any, args: any, context: any) => {
-            return context.dataSources.GenreAPI.update(args);
+            return context.dataSources.genreAPI.update(args);
         },
 
         deleteGenre: (root: any, args: any, context: any) => {
-            return context.dataSources.GenreAPI.deleteEntity(args);
+            return context.dataSources.genreAPI.deleteEntity(args);
         },
     },
 }

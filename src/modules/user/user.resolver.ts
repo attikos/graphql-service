@@ -5,7 +5,7 @@ export const userResolver = {
         },
 
         user: (_: any, { id }: any, { dataSources }: any) => {
-            return dataSources.userAPI.getBuyId(id);
+            return dataSources.userAPI.getById(id);
         },
     },
 

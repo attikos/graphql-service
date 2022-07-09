@@ -33,7 +33,7 @@ export class AlbumAPI extends RESTDataSource {
         return this.get('', pagination);
     }
 
-    async getBuyId(id: string) {
+    async getById(id: string) {
         return this.get(id);
     }
 }

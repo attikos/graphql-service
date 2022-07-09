@@ -1,41 +1,41 @@
 export const favoriteResolver = {
     Query: {
         favorites: (_: any, args: any, { dataSources } : any) => {
-            return dataSources.FavoriteAPI.getAll(args);
+            return dataSources.favoriteAPI.getAll(args);
         },
     },
 
     Mutation: {
         addTrackToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.addTrackToFavourites(args);
+            return context.dataSources.favoriteAPI.addTrackToFavourites(args);
         },
 
         addBandToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.addBandToFavourites(args);
+            return context.dataSources.favoriteAPI.addBandToFavourites(args);
         },
 
         addArtistToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.addArtistToFavourites(args);
+            return context.dataSources.favoriteAPI.addArtistToFavourites(args);
         },
 
         addGenreToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.addGenreToFavourites(args);
+            return context.dataSources.favoriteAPI.addGenreToFavourites(args);
         },
 
         removeTrackToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.removeTrackToFavourites(args);
+            return context.dataSources.favoriteAPI.removeTrackToFavourites(args);
         },
 
         removeBandToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.removeBandToFavourites(args);
+            return context.dataSources.favoriteAPI.removeBandToFavourites(args);
         },
 
         removeArtistToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.removeArtistToFavourites(args);
+            return context.dataSources.favoriteAPI.removeArtistToFavourites(args);
         },
 
         removeGenreToFavourites: (root: any, args: any, context: any) => {
-            return context.dataSources.FavoriteAPI.removeGenreToFavourites(args);
+            return context.dataSources.favoriteAPI.removeGenreToFavourites(args);
         },
     },
 }

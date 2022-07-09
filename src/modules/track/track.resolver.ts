@@ -5,7 +5,7 @@ export const trackResolver = {
         },
 
         track: (_: any, { id }: any, { dataSources }: any) => {
-            return dataSources.trackAPI.getBuyId(id);
+            return dataSources.trackAPI.getById(id);
         },
     },
 

@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { normalizeItemsId } from '../../common/helpers';
+import { normalizeId } from '../../common/helpers';
 
 export class FavoriteAPI extends RESTDataSource {
     constructor() {
@@ -12,47 +12,47 @@ export class FavoriteAPI extends RESTDataSource {
         request.headers.set('Authorization', this.context.token);
     }
 
-    @normalizeItemsId
+    @normalizeId
     addTrackToFavourites(id: any) {
         return this.put('add', { id, type: 'tracks' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     addBandToFavourites(id: any) {
         return this.put('add', { id, type: 'bands' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     addArtistToFavourites(id: any) {
         return this.put('add', { id, type: 'artists' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     addGenreToFavourites(id: any) {
         return this.put('add', { id, type: 'genres' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     removeTrackToFavourites(id: any) {
         return this.put('remove', { id, type: 'tracks' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     removeBandToFavourites(id: any) {
         return this.put('remove', { id, type: 'bands' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     removeArtistToFavourites(id: any) {
         return this.put('remove', { id, type: 'artists' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     removeGenreToFavourites(id: any) {
         return this.put('remove', { id, type: 'genres' });
     }
 
-    @normalizeItemsId
+    @normalizeId
     getAll(pagination: any) {
         return this.get('', pagination);
     }

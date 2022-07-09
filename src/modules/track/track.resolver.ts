@@ -38,7 +38,7 @@ export const trackResolver = {
             return getCollection();
         },
 
-        genres(parent: any, args: any, { dataSources } : any) {
+        genres(parent: { genresIds : Array<string> }, args: any, { dataSources } : any) {
             const genres = async () => {
                 const getCollection = parent.genresIds.map((id: string) =>
                     dataSources.genreAPI.getById(id)
@@ -48,6 +48,23 @@ export const trackResolver = {
             };
 
             return genres();
+        },
+
+        async album(parent: { albumId : string }, args: any, { dataSources } : any) {
+            if (!parent.albumId) {
+                return null
+            }
+
+            // Don't work in microservice
+            // const res = await dataSources.albumAPI.getById(parent.albumId);
+
+            const res = await dataSources.albumAPI.getAll();
+
+            if (!res.items) {
+                return null;
+            }
+
+            return res.items.filter((x: { id : string }) => x.id === parent.albumId);
         },
     },
 

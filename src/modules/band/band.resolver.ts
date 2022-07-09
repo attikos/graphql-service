@@ -15,15 +15,15 @@ export const bandResolver = {
         },
 
         genres(parent: any, args: any, { dataSources } : any) {
-            const genres = async () => {
+            const getCollection = () => {
                 const getCollection = parent.genresIds.map((id: string) =>
                     dataSources.genreAPI.getById(id)
                 );
 
-                return await Promise.all(getCollection);
+                return Promise.all(getCollection);
             };
 
-            return genres();
+            return getCollection();
         },
     },
 

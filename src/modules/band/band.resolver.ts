@@ -11,8 +11,6 @@ export const bandResolver = {
 
     Band: {
         id(parent: { id : string }) {
-            console.log('Band id parent', parent);
-
             return parent.id;
         },
 

@@ -13,10 +13,8 @@ export class TrackAPI extends RESTDataSource {
     }
 
     @normalizeItemsId
-    async create(args: any) {
-        const res = await this.post('', args);
-
-        return res;
+    create(args: any) {
+        return this.post('', {...args});
     }
 
     @normalizeItemsId

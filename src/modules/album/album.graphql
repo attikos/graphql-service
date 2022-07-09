@@ -6,7 +6,7 @@ type Album {
     bands: [Band]
     tracks: [Track]
     genres: [Genre]
-    image: String
+    # image: String
 }
 
 input AlbumInputUpdate {
@@ -16,7 +16,7 @@ input AlbumInputUpdate {
     bandsIds: [ID]
     trackIds: [ID]
     genresIds: [ID]
-    image: String
+    # image: String
 }
 
 input AlbumInputCreate {
@@ -26,7 +26,7 @@ input AlbumInputCreate {
     bandsIds: [ID]
     trackIds: [ID]
     genresIds: [ID]
-    image: String
+    # image: String
 }
 
 type AlbumPagination {

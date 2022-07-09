@@ -15,7 +15,7 @@ export class AlbumAPI extends RESTDataSource {
 
     @normalizeItemsId
     create(args: any) {
-        return this.post('', args);
+        return this.post('', {...args});
     }
 
     @normalizeItemsId

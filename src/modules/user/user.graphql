@@ -1,0 +1,42 @@
+type User {
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String!
+    password: String
+}
+
+type UserVerify {
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String
+    iat: String
+}
+
+input UserInputCreate {
+    password: String!
+    email: String!
+    firstName: String
+    lastName: String
+    favouriteArtistIds: [ID]
+}
+
+type JWT {
+    jwt: String
+}
+
+type Query {
+    verify: UserVerify
+
+    user(id: ID!): User
+}
+
+type Mutation {
+    register(input: UserInputCreate) : User
+
+    login(
+        password: String!
+        email: String!
+    ) : JWT
+}

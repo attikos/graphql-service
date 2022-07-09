@@ -1,0 +1,30 @@
+type Favorite {
+    id: ID!
+    userId: ID
+    bands: [Band]
+    genres: [Genre]
+    artists: [Artist]
+    tracks: [Track]
+}
+
+type FavoritePagination {
+  offset: Int
+  limit: Int
+  total: Int
+  items: [Favorite]
+}
+
+type Query {
+    favorites(arg: PaginationInput): FavoritePagination
+}
+
+type Mutation {
+    addTrackToFavourites(id: ID!): Favorite
+    addBandToFavourites(id: ID!): Favorite
+    addArtistToFavourites(id: ID!): Favorite
+    addGenreToFavourites(id: ID!): Favorite
+    removeTrackToFavourites(id: ID!): Favorite
+    removeBandToFavourites(id: ID!): Favorite
+    removeArtistToFavourites(id: ID!): Favorite
+    removeGenreToFavourites(id: ID!): Favorite
+}

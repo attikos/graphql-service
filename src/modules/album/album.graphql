@@ -1,0 +1,55 @@
+type Album {
+    id: ID!
+    name: String
+    released: Int
+    artists: [Artist]
+    bands: [Band]
+    tracks: [Track]
+    genres: [Genre]
+    # image: String
+}
+
+input AlbumInputUpdate {
+    name: String
+    released: Int
+    artistsIds: [ID]
+    bandsIds: [ID]
+    trackIds: [ID]
+    genresIds: [ID]
+    # image: String
+}
+
+input AlbumInputCreate {
+    name: String
+    released: Int
+    artistsIds: [ID]
+    bandsIds: [ID]
+    trackIds: [ID]
+    genresIds: [ID]
+    # image: String
+}
+
+type AlbumPagination {
+  offset: Int
+  limit: Int
+  total: Int
+  items: [Album]
+}
+
+type Query {
+    albums(arg: PaginationInput): AlbumPagination
+
+    album(id: ID!): Album
+}
+
+# scalar FileUploa
+
+extend type Mutation {
+    createAlbum(args: AlbumInputCreate) : Album
+
+    updateAlbum(id: ID!, args: AlbumInputUpdate) : Album
+
+    deleteAlbum(id: ID!) : DeleteEntity
+
+    # uploadAlbumImage(id: ID, image: FileUpload!) : Album
+}
